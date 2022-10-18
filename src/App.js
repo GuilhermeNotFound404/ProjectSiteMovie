@@ -2,11 +2,11 @@ import React, { memo, useEffect, useState } from "react";
 import tmdb from "./tmdb";
 import "./App.css";
 import MovieRow from "./components/MovieRow";
-import FeatueMovie from "./components/FeatueMovie";
+import FeatureMovie from "./components/FeatureMovie";
 
 const App = () => {
   const [movieList, setMovieList] = useState([]);
-  const [FeaturedData, setFeaturedData] = useState(null);
+  const [featuredData, setFeaturedData] = useState(null);
   useEffect(() => {
     const loadAll = async () => {
       let list = await tmdb.getHomeList();
@@ -26,7 +26,7 @@ const App = () => {
 
   return (
     <div className="page">
-      {setFeaturedData && <FeatueMovie item={setFeaturedData} />}
+      {featuredData && <FeatureMovie item={featuredData} />}
 
       <section className="lists">
         {movieList.map((item, key) => (
